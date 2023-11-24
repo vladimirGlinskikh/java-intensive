@@ -1,4 +1,4 @@
-package kz.zhelezyaka.дз_1;
+package kz.zhelezyaka.ta_1;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

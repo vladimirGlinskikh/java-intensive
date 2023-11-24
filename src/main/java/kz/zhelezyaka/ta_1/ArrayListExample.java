@@ -1,4 +1,4 @@
-package kz.zhelezyaka.дз_1;
+package kz.zhelezyaka.ta_1;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -11,6 +11,8 @@ import java.util.Objects;
  */
 public class ArrayListExample<E> {
     private static final int DEFAULT_CAPACITY = 10;
+    public static final String INDEX_LABEL = "Index";
+    public static final String SIZE_LABEL = "Size";
     private Object[] elements;
     private int size;
 
@@ -43,7 +45,7 @@ public class ArrayListExample<E> {
     public void add(int index, E element) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException(
-                    "Index: " + index + ", Size: " + size);
+                    INDEX_LABEL + ": " + index + SIZE_LABEL + ": " + size);
         }
 
         if (size == elements.length) {
@@ -56,7 +58,9 @@ public class ArrayListExample<E> {
                 elements,
                 index + 1,
                 size - index);
+        // Вставляем новый элемент на освободившееся место
         elements[index] = element;
+        // Увеличиваем размер списка
         size++;
     }
 
@@ -69,7 +73,7 @@ public class ArrayListExample<E> {
     public E get(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException(
-                    "Index: " + index + ", Size: " + size);
+                    INDEX_LABEL + ": " + index + SIZE_LABEL + ": " + size);
         }
         return (E) elements[index];
     }
@@ -84,7 +88,7 @@ public class ArrayListExample<E> {
     public E set(int index, E element) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException(
-                    "Index: " + index + ", Size: " + size);
+                    INDEX_LABEL + ": " + index + SIZE_LABEL + ": " + size);
         }
 
         E oldValue = (E) elements[index];
@@ -107,7 +111,7 @@ public class ArrayListExample<E> {
      */
     public void sort(Comparator<? super E> comparator) {
         if (comparator == null) {
-            Arrays.sort((E[]) elements, 0, size);
+            Arrays.sort(elements, 0, size);
         } else {
             Arrays.sort((E[]) elements, 0, size, comparator);
         }
@@ -122,7 +126,7 @@ public class ArrayListExample<E> {
     public E remove(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException(
-                    "Index: " + index + ", Size: " + size);
+                    INDEX_LABEL + ": " + index + SIZE_LABEL + ": " + size);
         }
 
         E removedElement = (E) elements[index];
