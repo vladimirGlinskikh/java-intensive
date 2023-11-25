@@ -111,6 +111,8 @@ class ArrayListExampleTest {
     @Test
     void shouldClearsArray() {
         addElements("a", "b", "c", "d");
+        assertEquals(4, arrayList.size());
+
         arrayList.clear();
 
         assertEquals(0, arrayList.size());
